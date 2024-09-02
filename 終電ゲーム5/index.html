@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>駅検索と経路案内</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoT-0oZJQZjqnjbdS3BCouScVXNbXzsPg&libraries=places"
+        async defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body onload="initMap()">
+    <div class="container">
+        <div class="sidebar">
+            <h1>終電ゲーム🐒</h1>
+
+            <div id="current-location">
+                <button class="btn" onclick="getCurrentLocation()">現在地を取得</button>
+                <p id="nearest-station-result" class="result-text">現在地の最寄り駅: 未設定</p>
+            </div>
+
+            <div id="home-station-section">
+                <label for="home-station">自宅の最寄り駅:</label>
+                <input type="text" id="home-station" placeholder="自宅の最寄り駅" class="input-field">
+                <button class="btn" onclick="findNearestStationsFromHome()">代替駅を探す</button>
+            </div>
+
+            <div id="alternative-stations-section">
+                <h2>自宅に近づける駅</h2>
+                <ul id="alternative-stations" class="station-list"></ul>
+            </div>
+
+            <div id="fare-section">
+                <h2>タクシー料金</h2>
+                <p id="fare-result" class="result-text">料金: 未計算</p>
+            </div>
+
+
+        </div>
+        <div id="map" class="map"></div>
+    </div>
+</body>
+
+</html>
